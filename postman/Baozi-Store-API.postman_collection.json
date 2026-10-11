@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "1cf39f43-6d0e-44e8-b790-f3f3b39a76c8",
+    "name": "Baozi Store API",
+    "description": "Fluxo de criacao, listagem e consulta de clientes, produtos e pedidos.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Criar cliente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Cliente criado', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('clienteId', pm.response.json().id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Ana Baozi\",\n  \"clienteDesde\": \"2026-10-11\"\n}"
+            },
+            "url": "{{baseUrl}}/api/clientes"
+          }
+        },
+        {
+          "name": "Listar clientes",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/clientes"
+          }
+        },
+        {
+          "name": "Consultar cliente por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/clientes/{{clienteId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produtos",
+      "item": [
+        {
+          "name": "Criar produto",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Produto criado', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('produtoId', pm.response.json().id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Paozinho chines\",\n  \"preco\": 8.50,\n  \"estoque\": true\n}"
+            },
+            "url": "{{baseUrl}}/api/produtos"
+          }
+        },
+        {
+          "name": "Listar produtos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/produtos"
+          }
+        },
+        {
+          "name": "Consultar produto por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/produtos/{{produtoId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedidos",
+      "item": [
+        {
+          "name": "Criar pedido",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Pedido criado', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('pedidoId', pm.response.json().id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": {{clienteId}},\n  \"produtoId\": {{produtoId}},\n  \"quantidade\": 3\n}"
+            },
+            "url": "{{baseUrl}}/api/pedidos"
+          }
+        },
+        {
+          "name": "Listar pedidos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/pedidos"
+          }
+        },
+        {
+          "name": "Consultar pedido por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/pedidos/{{pedidoId}}"
+          }
+        }
+      ]
+    }
+  ]
+}

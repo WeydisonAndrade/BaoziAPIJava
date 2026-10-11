@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+
+actor "Usuário da API" as Usuario
+
+rectangle "Baozi Store API" as Sistema {
+    package "Clientes" {
+        usecase "Cadastrar cliente" as UC_CriarCliente
+        usecase "Listar clientes" as UC_ListarClientes
+        usecase "Consultar cliente\npor ID" as UC_ConsultarCliente
+        usecase "Excluir cliente" as UC_ExcluirCliente
+    }
+
+    package "Produtos" {
+        usecase "Cadastrar produto" as UC_CriarProduto
+        usecase "Listar produtos" as UC_ListarProdutos
+        usecase "Consultar produto\npor ID" as UC_ConsultarProduto
+        usecase "Excluir produto" as UC_ExcluirProduto
+    }
+
+    package "Pedidos" {
+        usecase "Cadastrar pedido" as UC_CriarPedido
+        usecase "Listar pedidos" as UC_ListarPedidos
+        usecase "Consultar pedido\npor ID" as UC_ConsultarPedido
+        usecase "Excluir pedido" as UC_ExcluirPedido
+    }
+}
+
+note right of Sistema
+    Atualização (PUT/PATCH) não está implementada na API.
+end note
+
+Usuario -- UC_CriarCliente
+Usuario -- UC_ListarClientes
+Usuario -- UC_ConsultarCliente
+Usuario -- UC_ExcluirCliente
+
+Usuario -- UC_CriarProduto
+Usuario -- UC_ListarProdutos
+Usuario -- UC_ConsultarProduto
+Usuario -- UC_ExcluirProduto
+
+Usuario -- UC_CriarPedido
+Usuario -- UC_ListarPedidos
+Usuario -- UC_ConsultarPedido
+Usuario -- UC_ExcluirPedido
+@enduml

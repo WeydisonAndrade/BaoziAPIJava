@@ -1,0 +1,18 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.maven.enabled": true,
+    "java.autobuild.enabled": true,
+    "java.project.sourcePaths": [
+        "src/main/java"
+    ],
+    "files.exclude": {
+        "**/target": true
+    },
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.renderValidationDecorations": "off"
+    }
+}
