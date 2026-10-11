@@ -41,8 +41,8 @@ Criar produto:
 
 ```json
 {
-  "nome": "Paozinho chines",
-  "preco": 8.50,
+  "nome": "Notbook",
+  "preco": 2.000,
   "estoque": true
 }
 ```
