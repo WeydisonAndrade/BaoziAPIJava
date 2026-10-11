@@ -32,7 +32,7 @@ Criar cliente:
 
 ```json
 {
-  "nome": "Ana Baozi",
+  "nome": "Weydison4330561",
   "clienteDesde": "2026-10-11"
 }
 ```
